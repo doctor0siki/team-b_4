@@ -1,0 +1,54 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}商品一覧{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>商品一覧</h1>
+    </div>
+    <div class="row">
+        <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">写真</th>
+                    <th scope="col">商品名</th>
+                    <th scope="col">特徴</th>
+                    <th scope="col">価格</th>
+                </tr>
+                </thead>
+                <tbody>
+                {# 取得した結果分ループする処理です#}
+                {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
+                {# for文でresultの中の一次元目の配列をループで回す形となります #}
+                {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
+                {% for row in result %}
+                    <tr>
+                        <td class="align-middle" scope="col">
+                            <a href="/item/detail/{{ row.id }}">
+                                <img src="{{ row.image_url }}" width="200" class="img-fluid">
+                            </a>
+                        </td>
+                        <td class="align-middle" scope="col">
+                            <a href="/item/detail/{{ row.id }}">{{ row.name }}</a>
+                        </td>
+                        <td class="align-middle" scope="col">{{ row.spec }}</td>
+                        <td class="align-middle" scope="col">{{ row.price | number_format }}円</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

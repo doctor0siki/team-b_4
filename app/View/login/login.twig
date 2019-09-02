@@ -1,0 +1,56 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}ログイン{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>ログイン</h1>
+    </div>
+    <div class="box">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                    <form id="loginForm" method="POST" action="/login/">
+                        <div class="form-group">
+                            <label for="email" class="control-label">ユーザーネーム</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ email }}" required title="Please enter you username" placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">パスワード</label>
+                            <input type="password" class="form-control" id="password" name="password" value="" required title="Please enter your password">
+                        </div>
+                        {% if error %}
+                            <div class="form-group">
+                                <div class="alert alert-danger" role="alert">{{ error }}</div>
+                            </div>
+                        {% endif %}
+                        <button type="submit" class="btn btn-success btn-block">ログイン</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p class="lead">会員登録は <span class="text-success">無料</span> 今すぐ登録！</p>
+                <ul class="list-unstyled">
+                    <li><span class="fa fa-check text-success"></span> すべての注文が見れます。</li>
+                    <li><span class="fa fa-check text-success"></span> 早い追加注文。</li>
+                    <li><span class="fa fa-check text-success"></span> お気に入りを保存できます。</li>
+                    <li><span class="fa fa-check text-success"></span> 素早い購入。</li>
+                    <li><span class="fa fa-check text-success"></span> クーポンプレゼント
+                        <small>(カスタマー限定)</small>
+                    </li>
+                </ul>
+                <p><a href="/register/" class="btn btn-info btn-block">今すぐ登録</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

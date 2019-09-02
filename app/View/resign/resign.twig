@@ -1,0 +1,35 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}退会しますか？{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>退会の確認</h1>
+    </div>
+    <div class="box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well text-center">
+                    退会をすると、サービスが利用できなくなります。よろしいですか？
+                    <br>
+                    <br>
+                    <p class="text-center">
+                    <form action="/resign/" method="post">
+                        <button class="btn btn-info">退会する</button>
+                    </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

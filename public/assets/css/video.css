@@ -1,0 +1,26 @@
+/* ----- 背景用の動画ファイル ----- */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+}
+
+#filter {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10;
+    background-size: cover;
+    /*background-color: #FFF;*/
+    opacity: 0.55
+}

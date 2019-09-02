@@ -1,0 +1,61 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">TOP</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="Navber">
+            <ul class="navbar-nav mr-auto">
+                {% if session.user_info  =="" %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/">ログイン</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register/">会員登録</a>
+                    </li>
+
+                {% else %}
+                    {# ここに↓メニュー追加していく #}
+                    {# 一覧ページを出すサンプルURLです #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/item/list/">一覧ページ</a>
+                    </li>
+                    {# サンプルとして詳細ページの商品番号1番を出すURLです#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/item/detail/1">詳細ページ</a>
+                    </li>
+                    {# Bootstrapサンプル#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sample">BT4サンプル</a>
+                    </li>
+                    {# ここに↑メニュー追加していく #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">ログアウト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/resign/">退会</a>
+                    </li>
+
+
+                {% endif %}
+            </ul>
+            {# ログインしてたらユーザー名を出力する#}
+            {% if session.user_info.name %}
+                <ul class="navbar-nav">
+
+                    {# 検索ウィンドウです #}
+                    <li class="nav-item">
+                        <form class="form-inline" method="get">
+                            <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワード" value="{{ keyword }}" aria-label="Search">
+                            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">検索</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{{ session.user_info.name }}さん</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</header>

@@ -1,0 +1,52 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}{{ result.name }}の詳細情報{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+
+    <div class="page-header text-center">
+        <h4>{{ result.name }}</h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <img src="{{ result.image_url }}" class="img-fluid">
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    {{ result.spec }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1>{{ result.price |number_format }}円</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col align-bottom">
+                    <br>
+                    <button class="btn btn-danger"><i class="fa fa-shopping-cart"></i>　カートへ追加する　　</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <b>{{ result.spec }}</b>
+            <hr>
+            {{ result.detail | nl2br }}
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

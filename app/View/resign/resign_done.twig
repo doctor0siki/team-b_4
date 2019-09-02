@@ -1,0 +1,33 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}ご利用有難う御座いました{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>退会しました</h1>
+    </div>
+    <div class="box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well text-center">
+                    またのご利用をお待ちしております。
+                    <br>
+                    <br>
+                    <p class="text-center">
+                        <a href="/" class="btn btn-info">TOPへ</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
