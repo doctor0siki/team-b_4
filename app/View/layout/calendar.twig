@@ -1,0 +1,33 @@
+<h1>
+    {{ calendar.month_name }}
+</h1>
+
+<table border="1">
+    <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+    </tr>
+    <tr>
+        {% for cal in calendar %}
+        <td>
+            {% if cal.day %}
+            {{ cal.day }}
+            {% if reserved >=1 %}
+            ×
+            {% else %}
+            <a href="reserve/1">○</a>
+            {% endif %}
+            {% endif %}
+        </td>
+        {% if loop.index %7 ==0 %}
+    </tr>
+    <tr>
+        {% endif %}
+        {% endfor %}
+    </tr>
+</table>
