@@ -41,7 +41,7 @@ class Reserve extends Dao
         $statement = $this->db->prepare($sql);
 
         // villa_idを指定します
-        $statement->bindValue(":id", $villa_id, PDO::PARAM_STR);
+        $statement->bindValue(":id", $villa_id, PDO::PARAM_INT);
 
         // reserve_dateを指定します
         $statement->bindValue(":date", $reserve_date, PDO::PARAM_STR);
