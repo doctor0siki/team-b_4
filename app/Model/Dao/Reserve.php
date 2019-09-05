@@ -53,6 +53,68 @@ class Reserve extends Dao
         return $statement->fetchAll();
     }
 
+    /**
+     * getPastReserveByVilla Function
+     *
+     * Reserveテーブルから指定user_idの今日までのレコードを全件取得するクエリです。
+     *
+     * @param int $user_id 引数として、取得したい予約記録を指定します。
+     * @return array $result 結果情報を連想配列を返します。
+     * @throws DBALException
+     * @author wkmkymt <wkmkymt@gmail.com>
+     * @since 2019/09/06
+     */
+    public function getPastReserveByUser($user_id)
+    {
+        // user_idを指定して取得するクエリを作成
+        $sql = "select reserve.date, villa.id, villa.name, villa.image_path
+                    from reserve inner join villa on reserve.villa_id = villa.id
+                    where reserve.date <= now() and user_id = :id";
+
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+
+        // user_idを指定します
+        $statement->bindParam(":id", $user_id, PDO::PARAM_INT);
+
+        // SQLを実行
+        $statement->execute();
+
+        // 結果レコードを一件取得し、返送
+        return $statement->fetchAll();
+    }
+
+    /**
+     * getFutureReserveByVilla Function
+     *
+     * Reserveテーブルから指定user_idの明日以降のレコードを全件取得するクエリです。
+     *
+     * @param int $user_id 引数として、取得したい予約記録を指定します。
+     * @return array $result 結果情報を連想配列を返します。
+     * @throws DBALException
+     * @author wkmkymt <wkmkymt@gmail.com>
+     * @since 2019/09/06
+     */
+    public function getFutureReserveByUser($user_id)
+    {
+        // user_idを指定して取得するクエリを作成
+        $sql = "select reserve.date, villa.id, villa.name, villa.image_path
+                    from reserve inner join villa on reserve.villa_id = villa.id
+                    where reserve.date > now() and user_id = :id";
+
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+
+        // user_idを指定します
+        $statement->bindParam(":id", $user_id, PDO::PARAM_INT);
+
+        // SQLを実行
+        $statement->execute();
+
+        // 結果レコードを一件取得し、返送
+        return $statement->fetchAll();
+    }
+
     public static function formatReserveList($reserves)
     {
         $reserve_list = [];
