@@ -3,7 +3,7 @@
 namespace Model\Dao;
 
 /**
- * Class Villa
+ * Class Topic
  *
  * Topicテーブルを扱う Classです
  * DAO.phpに用意したCRUD関数以外を実装するときに、記載をします。
