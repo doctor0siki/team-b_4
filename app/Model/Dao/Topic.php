@@ -35,7 +35,9 @@ class Topic extends Dao
 
         // 全件取得するクエリを作成
         $sql = "select villa.name, villa.description, villa.image_path
-                    from topic inner join villa on topic.villa_id = villa.id";
+                    from topic inner join villa on topic.villa_id = villa.id
+                    order by topic.id DESC
+                    limit 8";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
