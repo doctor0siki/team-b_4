@@ -4,7 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Villaページのコントローラ
-$app->get('/', function (Request $request, Response $response) {
+$app->get('/villa/', function (Request $request, Response $response) {
 
   $data = [];
 
