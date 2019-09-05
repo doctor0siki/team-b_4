@@ -1,7 +1,6 @@
 <?php
 
 use Model\Dao\Villa;
-use Model\Dao\Spot;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
