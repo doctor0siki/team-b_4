@@ -13,9 +13,9 @@ $app->get('/', function (Request $request, Response $response) {
     // セッションに登録されたユーザIDを取得
     $user_id = $this->session["user_info"]["id"];
 
-    $data = [];
-    if ($user_id)
-        $data["topics"] = $topic->getTopicList($user_id);
+    $data = [
+        "topics" => $topic->getTopicList($user_id)
+    ];
 
     // Render index view
     return $this->view->render($response, 'top/index.twig', $data);
