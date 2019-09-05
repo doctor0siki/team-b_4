@@ -4,7 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Reserveページのコントローラ
-$app->get('/villa/reserve/', function (Request $request, Response $response) {
+$app->get('/villa/reserve/{ villa_id }[/]', function (Request $request, Response $response, $args) {
 
     $data = [];
 
