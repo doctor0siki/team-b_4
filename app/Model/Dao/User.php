@@ -2,6 +2,9 @@
 
 namespace Model\Dao;
 
+use Doctrine\DBAL\DBALException;
+use PDO;
+
 /**
  * Class User
  *
