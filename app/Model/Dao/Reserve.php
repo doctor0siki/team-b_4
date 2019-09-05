@@ -69,7 +69,8 @@ class Reserve extends Dao
         // user_idを指定して取得するクエリを作成
         $sql = "select reserve.date, villa.id, villa.name, villa.image_path
                     from reserve inner join villa on reserve.villa_id = villa.id
-                    where reserve.date <= now() and user_id = :id";
+                    where reserve.date <= now() and user_id = :id
+                    limit 6";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
@@ -100,7 +101,8 @@ class Reserve extends Dao
         // user_idを指定して取得するクエリを作成
         $sql = "select reserve.date, villa.id, villa.name, villa.image_path
                     from reserve inner join villa on reserve.villa_id = villa.id
-                    where reserve.date > now() and user_id = :id";
+                    where reserve.date > now() and user_id = :id
+                    limit 6";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
