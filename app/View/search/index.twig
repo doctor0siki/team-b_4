@@ -2,14 +2,32 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}Search
-{% endblock %}
+{% block title %}{{ keyword }}の検索結果{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}{% endblock %}
 
 {#ここから表示したい情報を記載します。#}
-{% block page_content %}{% endblock %}
+{% block page_content %}
+
+    {% if result %}
+        <div class="card-group">
+            {% for row in result %}
+                <a href="/villa/{{ row.id }}/">
+                    <div class="card">
+                        <img src="{{ row.image_path }}" class="card-img-top img-responsive" alt="{{ row.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ row.name }}</h5>
+                            <p class="card-text">{{ row.description }}...</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        「{{ keyword }}」で検索しましたが、該当の情報がありませんでした。<br>もうすこし都会で仕事をする必要があるようです。
+    {% endif %}
+{% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
 {% block footer_scripts_add %}{% endblock %}

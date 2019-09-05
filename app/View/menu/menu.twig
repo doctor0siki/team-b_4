@@ -40,22 +40,24 @@
 
                 {% endif %}
             </ul>
-            {# ログインしてたらユーザー名を出力する#}
-            {% if session.user_info.name %}
+
                 <ul class="navbar-nav">
 
                     {# 検索ウィンドウです #}
                     <li class="nav-item">
-                        <form class="form-inline" method="get">
+                        <form class="form-inline" method="get" action="/search/">
                             <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワード" value="{{ keyword }}" aria-label="Search">
                             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">検索</button>
                         </form>
                     </li>
+                    {# ログインしてたらユーザー名を出力する#}
+                    {% if session.user_info.name %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ session.user_info.name }}さん</a>
                     </li>
+                    {% endif %}
                 </ul>
-            {% endif %}
+
         </div><!-- /.navbar-collapse -->
     </nav>
 </header>

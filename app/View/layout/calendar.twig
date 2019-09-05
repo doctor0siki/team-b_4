@@ -1,0 +1,35 @@
+<h1>
+    {{ calendar.month_name }}
+</h1>
+<table>
+    <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+    </tr>
+    <tr>
+        {% set cnt = 0 %}
+        {% for cal in calendar %}
+        <td>
+            {% set cnt = cnt + 1 %}
+            {{ cal.day }}
+            {% if cal.day %}
+                {% if reserved >=1 %}
+                    <br>×
+                {% else %}
+                    <br><a href="reserve/1">○</a>
+                {% endif %}
+            {% endif %}
+        </td>
+        {% if cnt == 7 %}
+    </tr>
+    <tr>
+        {% set cnt = 0 %}
+        {% endif %}
+        {% endfor %}
+    </tr>
+</table>
