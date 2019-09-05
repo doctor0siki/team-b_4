@@ -1,0 +1,56 @@
+
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}予約ページ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+{# 背景動画を表示させるスタイルを読み込みます。#}
+<link href="/assets/css/video.css" rel="stylesheet">
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+
+
+<p><div style="margin-bottom:80px">
+<h1>ありがとうございます</h1><br>
+<h1>予約を確定しました。</h1>
+</div></p>
+
+
+
+
+
+
+<p>
+<div style="margin-bottom:50px">title</div>
+</p>
+
+
+
+<p>
+<div style="margin-bottom:50px">メインページへ</div>
+</p>
+
+
+<p>
+address
+</p>
+
+<p>
+<div style="margin-bottom:100px">
+電話<br>
+アドレス<br>
+email<br></div>
+</p>
+
+
+
+{% endblock %}
+
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
