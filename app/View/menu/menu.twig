@@ -1,6 +1,8 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">TOP</a>
+        <a class="navbar-brand" href="/">
+            <img src="/assets/img/icon01.png" width="30px" height="30px">
+        </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,8 +20,7 @@
                 {% else %}
                     {# ここに↓メニュー追加していく #}
                     {# 一覧ページを出すサンプルURLです #}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/item/list/">一覧ページ</a>
+                        <li class="nav-item"> <a class="nav-link" href="/item/list/">一覧ページ</a>
                     </li>
                     {# サンプルとして詳細ページの商品番号1番を出すURLです#}
                     <li class="nav-item">
@@ -40,22 +41,26 @@
 
                 {% endif %}
             </ul>
-            {# ログインしてたらユーザー名を出力する#}
-            {% if session.user_info.name %}
-                <ul class="navbar-nav">
 
-                    {# 検索ウィンドウです #}
-                    <li class="nav-item">
-                        <form class="form-inline" method="get">
-                            <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワード" value="{{ keyword }}" aria-label="Search">
-                            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">検索</button>
-                        </form>
-                    </li>
+            <ul
+                class="navbar-nav">
+
+                {# 検索ウィンドウです #}
+                <li class="nav-item">
+                    <form class="form-inline" method="get" action="/search/">
+                        <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワード" value="{{ keyword }}" aria-label="Search">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">検索</button>
+                    </form>
+                </li>
+                {# ログインしてたらユーザー名を出力する#}
+                {% if session.user_info.name %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ session.user_info.name }}さん</a>
                     </li>
-                </ul>
-            {% endif %}
-        </div><!-- /.navbar-collapse -->
+                {% endif %}
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
     </nav>
 </header>
