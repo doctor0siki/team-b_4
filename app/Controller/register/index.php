@@ -13,7 +13,6 @@ $app->get('/register/', function (Request $request, Response $response) {
 
     // Render index view
     return $this->view->render($response, 'register/register.twig', $data);
-
 });
 
 // 会員登録処理コントローラ
@@ -33,11 +32,13 @@ $app->post('/register/', function (Request $request, Response $response) {
 
         // 入力フォームを再度表示します
         return $this->view->render($response, 'register/register.twig', $data);
-
     }
 
     //DB登録に必要ない情報は削除します
     unset($data["password_re"]);
+
+    // roleデータを追加
+    $data["role"] = 0;
 
     //DBに登録をする。戻り値は自動発番されたIDが返ってきます
     $id = $user->insert($data);
@@ -50,5 +51,4 @@ $app->post('/register/', function (Request $request, Response $response) {
 
     // 登録完了ページを表示します。
     return $this->view->render($response, 'register/register_done.twig', $data);
-
 });
