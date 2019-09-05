@@ -10,11 +10,8 @@ $app->get('/', function (Request $request, Response $response) {
     // DAO, topic DAOをインスタンス化
     $topic = new Topic($this->db);
 
-    // セッションに登録されたユーザIDを取得
-    $user_id = $this->session["user_info"]["id"];
-
     $data = [
-        "topics" => $topic->getTopicList($user_id)
+        "topics" => $topic->getTopicList()
     ];
 
     // Render index view
