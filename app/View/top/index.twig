@@ -126,8 +126,8 @@
             <h4>最新のおすすめ</h4><br>
         </div>
 
-        {# <!-- {% for spot in spots %} -->
-            <!-- {% for villa in villas %}
+        {# <!-- {% for spot in spots %} --> #}
+            {% for villa in villas %}
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="card img-thumbnail">
                     <img class="card-img-top" src="{{villa.image_path}}" alt="画像">
@@ -139,10 +139,10 @@
                     </div>
                 </div>
             </div>
-            {% endfor %} --> #}
+            {% endfor %} 
 
 
-        <div class="col-lg-3 col-md-6 text-center">
+        {# <div class="col-lg-3 col-md-6 text-center">
             <div class="card img-thumbnail">
                 <img class="card-img-top" src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" alt="画像">
                 <div class="card-body px-2 py-3">
@@ -201,7 +201,7 @@
             </div>
             <!-- /.card -->
         </div>
-        <!-- /.col-sm-6.col-md-3 -->
+        <!-- /.col-sm-6.col-md-3 --> #}
     </div>
 
 
