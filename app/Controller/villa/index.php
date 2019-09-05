@@ -6,8 +6,8 @@ use Slim\Http\Response;
 // Villaページのコントローラ
 $app->get('/villa/', function (Request $request, Response $response) {
 
-  $data = [];
+    $data = [];
 
-  // Render index view
-  return $this->view->render($response, 'villa/index.twig', $data);
+    // Render index view
+    return $this->view->render($response, 'villa/index.twig', $data);
 });

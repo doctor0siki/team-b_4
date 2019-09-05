@@ -6,8 +6,8 @@ use Slim\Http\Response;
 // Searchページのコントローラ
 $app->get('/search/', function (Request $request, Response $response) {
 
-  $data = [];
+    $data = [];
 
-  // Render index view
-  return $this->view->render($response, 'search/index.twig', $data);
+    // Render index view
+    return $this->view->render($response, 'search/index.twig', $data);
 });
