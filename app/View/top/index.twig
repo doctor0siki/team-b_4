@@ -6,28 +6,48 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-    {# 背景動画を表示させるスタイルを読み込みます。#}
-    <link href="/assets/css/video.css" rel="stylesheet">
+{# 背景動画を表示させるスタイルを読み込みます。#}
+<link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="page-header text-center">
-                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">タイトル</h1>
-            </div>
-            <div class="box">
-                <div class="row">
-                    <div class="col-md-12">
-                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                        <div id="filter">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-header text-center">
+            <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">タイトル</h1>
+        </div>
+        <div>
+            <div class="titan-caption">
+                <div class="box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+                            <div id="filter">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

@@ -14,7 +14,4 @@ namespace Model\Dao;
  * @package Model\Dao
  */
 class User extends Dao
-{
-
-
-}
+{ }
