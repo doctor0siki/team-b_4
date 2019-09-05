@@ -15,13 +15,23 @@ $app->get('/villa/{ villa_id }[/]', function (Request $request, Response $respon
     $reserve = new Reserve($this->db);
 
     $cal = Calendar::getCalArray(date("Ym"));
+    $reserves = $reserve->getReserveByVilla($args["villa_id"], date("Y-m-d"));
+    $reserved_list = Reserve::formatReserveList($reserves);
+
+    for ($i = 0; $i < count($cal) - 1; $i++) {
+        if (!$cal[$i]["day"])
+            $cal[$i]["reserved"] = false;
+        else if (in_array($cal[$i]["day"], $reserved_list))
+            $cal[$i]["reserved"] = false;
+        else
+            $cal[$i]["reserved"] = true;
+    }
 
     // 各データを格納
     $data = [
         "villa" => $villa->getVilla($args["villa_id"]),
         "spots" => $villa->getSpotByVilla(($args["villa_id"])),
-        "calendar" => $cal,
-        "reserve" => $reserve->getReserveByVilla($args["villa_id"], date("Y-m-d")),
+        "calendar" => $cal
     ];
 
     // Render index view

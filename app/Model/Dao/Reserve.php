@@ -52,4 +52,12 @@ class Reserve extends Dao
     // 結果レコードを一件取得し、返送
     return $statement->fetchAll();
   }
+
+  public static function formatReserveList($reserves)
+  {
+    $reserve_list = [];
+    foreach ($reserves as $reserve)
+        array_push($reserve_list, date("j", strtotime($reserve["date"])));
+    return $reserve_list;
+  }
 }
