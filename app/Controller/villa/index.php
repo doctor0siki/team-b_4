@@ -17,8 +17,6 @@ $app->get('/villa/{ villa_id }[/]', function (Request $request, Response $respon
         "spots" => $villa->getSpotByVilla(($args["villa_id"]))
     ];
 
-    dd($data);
-
     // Render index view
     return $this->view->render($response, 'villa/index.twig', $data);
 });
