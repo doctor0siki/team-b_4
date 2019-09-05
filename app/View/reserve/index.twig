@@ -4,7 +4,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}TOP{% endblock %}
+{% block title %}予約ページ{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -42,13 +42,13 @@ email<br></div>
 
 
 <p>
-<form action="cgi-bin/example.cgi" method="post">
+<form action="/villa/reserve/confirm/[id]" method="post">
 	<p>チェックイン<input type="date" name="datetime"></p>
 	<p>チェックアウト<input type="date" name="datetime"></p>
 </form>
 </p>
 
-<p><div style="margin:80px">宿泊人数　<input type="number" name="people" min="0" max="1"> 人</div></p>
+<p><div style="margin:80px">宿泊人数　<input type="number" name="people" min="0" max="5"> 人</div></p>
 
 <div class="terms" style="margin:80px">
 利用規約
@@ -82,7 +82,4 @@ div.example {
 
 
 {#共通フッタとして追記したい情報を記載します。#}
-<button type="button" name="aaa" value="aaa">
-<font size="2">ここを</font><font size="5" color="#333399">押してね</font>
-</button>
 {% block footer_scripts_add %}{% endblock %}
