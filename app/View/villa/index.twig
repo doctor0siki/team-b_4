@@ -6,17 +6,126 @@
 {% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
-{% block header_scripts_add %}{% endblock %}
+{% block header_scripts_add %}
+<link herf="/assets/css/mouse.css" rel="stylesheet">
+{% endblock %}
+
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="row">
-        <div class="col-lg-8 col-md-8 text-center">
-            <img src="..." alt="..." class="img-thumbnail">
+<div class="row">
+    <div class="col-lg-8 col-md-8 text-center">
+        <img src="/assets/img/icon01.png" class="img-thumbnail">
+    </div>
+    <div class="col-lg-4 col-md-8 text-center">
+        <br><br><br><br><br>
+        <h3>タイトル</h3>
+        <br><br><br>
+        <h5>金額</h5>
+        <br><br><br><br><br>
+        <a class="btn btn-outline-secondary btn-xl">
+            <h4>予約する</h4>
+        </a>
+        <br><br><br>
+        <h5>都道府県 名</h5>
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+
+<div class="row">
+    <div class="col-lg-4 col-md-8 text-center">
+        <img src="/assets/img/icon01.png" class="img-thumbnail">
+    </div>
+    <div class="col-lg-8 col-md-8 text-center">
+        <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーこの文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミー
+        </p>
+    </div>
+</div>
+
+<br><br><br>
+<div class="row">
+    <fieldset style="border: 1px dashed #000000; padding: 10px;">
+        <legend class="text-center">付近のおすすめ観光地</legend>
+        <div class="row no-gutters">
+            <div class="col-md-4 my-auto">
+                <img class="card-img" src="https://www.kabegamikan.com/img/na13/162970.jpg">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">鶴ヶ城</h5>
+                    <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
+                    <I class=“fas fa-map-marker”></I> : Adress
+                    <I class=“fas fa-phone-square”></I> :Phone
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-8 text-center">
-        
+
+        <br>
+
+        <div class="row no-gutters">
+            <div class="col-md-4 my-auto">
+                <img class="card-img" src="https://www.kabegamikan.com/img/na13/162970.jpg">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">鶴ヶ城</h5>
+                    <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
+                    <I class=“fas fa-map-marker”></I> : Adress
+                    <I class=“fas fa-phone-square”></I> :Phone
+                </div>
+            </div>
         </div>
-    {% endblock %}
-    {#共通フッタとして追記したい情報を記載します。#}
-    {% block footer_scripts_add %}{% endblock %}
+    </fieldset>
+</div>
+
+<br><br><br>
+
+<div class="row">
+    <h1>
+        {{ calendar.month_name }}
+    </h1>
+    <table>
+        <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+        </tr>
+        <tr>
+            {% set cnt = 0 %}
+            {% for cal in calendar %}
+            <td>
+                {% set cnt = cnt + 1 %}
+                {{ cal.day }}
+                {% if cal.day %}
+                {% if reserved >=1 %}
+                <br>×
+                {% else %}
+                <br><a href="reserve/1">○</a>
+                {% endif %}
+                {% endif %}
+            </td>
+            {% if cnt == 7 %}
+        </tr>
+        <tr>
+            {% set cnt = 0 %}
+            {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+
+</div>
+
+<br><br><br>
+<div class="row">
+    <button type="button" class="btn btn-outline-secondary btn-block">予約する</button>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock %}
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
