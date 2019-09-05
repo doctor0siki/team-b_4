@@ -53,15 +53,13 @@ class Calendar
                 for ($s = 1; $s <= $week; $s++) {
 
                     // 前半に空文字をセット
-                    $data["calendar"][$j]['day'] = '';
+                    $data[$j]['day'] = '';
                     $j++;
-
                 }
-
             }
 
             // 配列に日付をセット
-            $data["calendar"][$j]['day'] = $i;
+            $data[$j]['day'] = $i;
             $j++;
 
             // 月末日の場合
@@ -71,15 +69,13 @@ class Calendar
                 for ($e = 1; $e <= 6 - $week; $e++) {
 
                     // 後半に空文字をセット
-                    $data["calendar"][$j]['day'] = '';
+                    $data[$j]['day'] = '';
                     $j++;
-
                 }
             }
         }
 
-        $data["calendar"]["month_name"]= date('Y年m月', strtotime($ymcode . "01"));
+        $data["month_name"] = date('Y年m月', strtotime($ymcode . "01"));
         return $data;
-
     }
 }
