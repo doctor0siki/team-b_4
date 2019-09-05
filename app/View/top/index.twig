@@ -8,46 +8,180 @@
 {% block header_scripts_add %}
 {# 背景動画を表示させるスタイルを読み込みます。#}
 <link href="/assets/css/video.css" rel="stylesheet">
+<link herf="/assets/css/mouse.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-<div class="row">
-    <div class="col-sm-12">
-        <div class="page-header text-center">
-            <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">タイトル</h1>
+
+
+<!-- <div class="row">
+    <div class="col-md-12 ">
+        <div class="embed-responsive embed-responsive-16by9">
+            <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+            <div id="filter">
+            </div>
+
         </div>
-        <div>
-            <div class="titan-caption">
-                <div class="box">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                            <div id="filter">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    </div>
+
+</div> -->
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col no-gutters">
+            <div class="col-xl-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <!-- インジケータの設定 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    </ol>
+                    <!-- スライドさせる画像の設定 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="/assets/img/01.jpg" alt="第1スライド">
+                        </div><!-- /.carousel-item -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/02.jpg" alt="第2スライド">
+                        </div><!-- /.carousel-item -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/03.jpg" alt="第3スライド">
+                        </div><!-- /.carousel-item -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/04.jpg" alt="第4スライド">
+                        </div><!-- /.carousel-item -->
+                    </div><!-- /.carousel-inner -->
+                    <!-- スライドコントロールの設定 -->
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <!-- ... -->
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <!-- ... -->
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <!-- ... -->
+                    </a>
+                </div><!-- /.carousel -->
             </div>
         </div>
     </div>
 </div>
 
+<br><br><br><br><br><br>
+
 <div class="row">
-    <div class="card" style="width: 18rem;">
+
+    <!-- <div class="sample2">
+        <img src="./fruit.jpg" alt="フルーツ寄せ集め" />
+        <div class="mask">
+            <div class="caption">It's fresh !</div>
+        </div>
+    </div> -->
+    <div class="col-lg-4 col-md-6 text-center">
         <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                 the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
-        <div>
+    </div>
+    <div class="col-lg-4 col-md-6 text-center">
+        <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                the card's content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 text-center">
+        <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                the card's content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
     </div>
 </div>
 
 
+<br><br><br><br><br><br><br><br><br><br><br>
+
+
+<div class="row">
+    <div class="text-center col-lg-12 col-md-12">
+        <h4>最新のおすすめ</h4><br>
+    </div>
+
+    <!-- {% for spot in spots %} -->
+    <!-- {% for villa in villas %}
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" src="{{villa.image_path}}" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">{{villa.name}}</h5>
+                <p class="card-text"></p>{{villa.description}}</p>
+                <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm">詳細ページ</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %} -->
+
+
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">タイトル</h5>
+                <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
+                <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a>
+                </p>
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
+    </div><!-- /.col-sm-6.col-md-3 -->
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">タイトル</h5>
+                <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
+                <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a>
+                </p>
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
+    </div><!-- /.col-sm-6.col-md-3 -->
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">タイトル</h5>
+                <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
+                <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a>
+                </p>
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
+    </div><!-- /.col-sm-6.col-md-3 -->
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">タイトル</h5>
+                <p class="card-text">コンテンツ コンテンツ コンテンツ コンテンツ</p>
+                <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a>
+                </p>
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
+    </div><!-- /.col-sm-6.col-md-3 -->
+</div>
+
+
+
+<br><br><br><br><br><br>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
