@@ -55,8 +55,8 @@
                 <div class="card-body">
                     <h5 class="card-title">鶴ヶ城</h5>
                     <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
-                    <I class=“fas fa-map-marker”></I> : Adress
-                    <I class=“fas fa-phone-square”></I> :Phone
+                    <I class="fas fa-map-marker"></I> : Adress
+                    <I class="fas fa-phone-square"></I> :Phone
                 </div>
             </div>
         </div>
@@ -71,11 +71,27 @@
                 <div class="card-body">
                     <h5 class="card-title">鶴ヶ城</h5>
                     <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
-                    <I class=“fas fa-map-marker”></I> : Adress
-                    <I class=“fas fa-phone-square”></I> :Phone
+                    <I class="fas fa-map-marker"></I> : Adress
+                    <I class="fas fa-phone-square"></I> :Phone
                 </div>
             </div>
         </div>
+
+        {# {% for spot in spots %}
+        <div class="row no-gutters">
+            <div class="col-md-4 my-auto">
+                <img class="card-img" src="{{spot.img-pass}}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{spot.name}}</h5>
+                    <p>{{spot.description}}</p>
+                    <I class="fas fa-map-marker"></I> : {{spot.adress}}
+                    <I class="fas fa-phone-square"></I> : {{spot.phone}}
+                </div>
+            </div>
+        </div>
+        {% endfor %} #}
     </fieldset>
 </div>
 
