@@ -1,5 +1,3 @@
-
-
 {#レイアウトを継承します#}
 {% extends "layout/layout.twig" %}
 
@@ -17,47 +15,53 @@
 
 
 <p>
-<div style="margin-bottom:100px"><h1>title</h1></div>
+  <div style="margin-bottom:100px">
+    <h1>title</h1>
+  </div>
 </p>
 
 
 
 <p>
-<div style="margin-bottom:100px"><h1>address</h1></div>
+  <div style="margin-bottom:100px">
+    <h1>address</h1>
+  </div>
 </p>
 
 <p>
-<div style="margin-bottom:100px">
-電話<br>
-アドレス<br>
-email<br></div>
-</p>
-
-
-<p>
-<div style="margin-bottom:50px">
-<img src="https://www.resort-home.jp/blog/photo/2018.2.1.jpg" alt="villa1" width="555" height="374" border="0"/>
-</div>
+  <div style="margin-bottom:100px">
+    電話<br>
+    アドレス<br>
+    email<br></div>
 </p>
 
 
 <p>
-<form action="/villa/reserve/confirm/[id]" method="post">
-	<p>チェックイン<input type="date" name="datetime"></p>
-	<p>チェックアウト<input type="date" name="datetime"></p>
-</form>
+  <div style="margin-bottom:50px">
+    <img src="https://www.resort-home.jp/blog/photo/2018.2.1.jpg" alt="villa1" width="555" height="374" border="0" />
+  </div>
 </p>
 
-<p><div style="margin:80px">宿泊人数　<input type="number" name="people" min="0" max="5"> 人</div></p>
+
+<p>
+  <form action="/villa/reserve/confirm/[id]" method="post">
+    <p>チェックイン<input type="date" name="datetime"></p>
+    <p>チェックアウト<input type="date" name="datetime"></p>
+  </form>
+</p>
+
+<p>
+  <div style="margin:80px">宿泊人数　<input type="number" name="people" min="0" max="5"> 人</div>
+</p>
 
 <div class="terms" style="margin:80px">
-利用規約
-この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+  利用規約
+  この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
 
-第1条（適用）
-本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
-当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
-本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。。。。
+  第1条（適用）
+  本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
+  当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
+  本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。。。。
 </div>
 
 {# ↑CSS: 
@@ -69,10 +73,12 @@ div.example {
 }
 #}
 
-<p><div style="margin:80px"><input type="checkbox"> 同意します。</div></p>
+<p>
+  <div style="margin:80px"><input type="checkbox"> 同意します。</div>
+</p>
 
 <button type="button" name="aaa" value="aaa">
-<font size="5">確認ページ</font>
+  <font size="5">確認ページ</font>
 </button>
 
 
@@ -82,4 +88,5 @@ div.example {
 
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+{% block footer_scripts_add %}
+{% endblock %}
