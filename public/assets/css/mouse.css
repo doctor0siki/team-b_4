@@ -1,3 +1,31 @@
+figcaption.hover-parent{
+ width: 250px;
+ height: 175px;
+ position: relative;
+ margin-bottom: 30px;
+ overflow: hidden;
+}
+figcaption.hover-mask {
+ width: 250px;
+ height: 175px;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background: rgba(0,0,0,0.5);
+ opacity: 0;
+ color: #fff;
+ display: flex;
+ align-items: center;
+ text-align: center;
+ padding: 30px;
+}
+figcaption.hover-mask {
+ opacity: 1;
+ transition:all 0.6s ease;
+}
+
 .sample2 {
 	width:			280px;
 	height:			188px;
@@ -25,3 +53,4 @@
 	opacity:		1;	/* マスクを表示する */
 	padding-top:		80px;	/* ホバーで下にずらす */
 }
+

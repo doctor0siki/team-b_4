@@ -6,10 +6,60 @@
 {% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
-{% block header_scripts_add %}{% endblock %}
+{% block header_scripts_add %}
+{% endblock %}
 
 {#ここから表示したい情報を記載します。#}
-{% block page_content %}{% endblock %}
+{% block page_content %}
+<div class="row">
+    <div class="text-center col-lg-12 col-md-12">
+        <h4>予約一覧</h4><br>
+    </div>
+
+    {# <!-- {% for spot in spots %} --> #}
+    {% for future in future_reserve %}
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <img class="card-img-top" height="150" src="{{villa.image_path}}" alt="画像">
+            <div class="card-body px-2 py-3">
+                <h5 class="card-title">{{future.name}}</h5>
+                <p class="card-text text-left">{{future.description}}</p>
+                {# <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm form-control">詳細ページ</a> #}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<hr><br>
+
+<div class="row">
+    <div class="text-center col-lg-12 col-md-12">
+        <h4>過去に訪れた場所</h4><br>
+    </div>
+
+    {# <!-- {% for spot in spots %} --> #}
+    {% for past in past_reserve %}
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="card img-thumbnail">
+            <a href="/villa/{{past.villa.id}}">
+                <img class="card-img-top" height="150" src="{{past.image_path}}" alt="画像">
+                <div class="card-body px-2 py-3">
+                    <h5 class="card-title">{{past.name}}</h5>
+                    <p class="card-text text-left">{{past.date}}</p>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<br><br><br><br><br><br>
+{% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
 {% block footer_scripts_add %}{% endblock %}
