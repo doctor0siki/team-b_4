@@ -56,7 +56,10 @@ class Villa extends Dao
                     from spot_villa 
                         left join spot on spot_villa.spot_id = spot.id
                     where spot_villa.villa_id = :id";
-      
+
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+
         // idを指定します
         $statement->bindParam(":id", $villa_id, PDO::PARAM_INT);
 
