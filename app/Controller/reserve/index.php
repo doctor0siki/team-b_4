@@ -29,9 +29,10 @@ $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Respon
 });
 
 // 予約完了画面
-$app->get('/reserve/confirmed[/]', function (Request $request, Response $response) {
-
-    $data = [];
+$app->post('/reserve/confirmed[/]', function (Request $request, Response $response) {
+    $data = $request->getParsedBody();
+    // dd($data);
+    // $data = [];
     // Render index view
     return $this->view->render($response, 'reserve/confirmed.twig', $data);
 });

@@ -1,4 +1,3 @@
-
 {#レイアウトを継承します#}
 {% extends "layout/layout.twig" %}
 
@@ -15,41 +14,68 @@
 {% block page_content %}
 
 
-<p>
-<div style="margin-bottom:50px"><h1>title</h1></div>
-</p>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <br><br><br>
+        <h1>titile</h2>
+            <br><br>
+            <h3>都道府県</h3>
+            <br><br><br><br>
+            <p>
+                <i class="fas fa-map-marker"></i> : Adress <br>
+                <i class="fas fa-phone-square"></i> :Phone <br>
+                <i class="fas fa-envelope-square"></i> :Email<br>
+            </p>
+    </div>
+</div>
+
+<br><br><br><br>
+
+<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">checkin</h5>
+                <p class="card-text text-center">〇〇〇〇・〇〇・〇1</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">checkout</h5>
+                <p class="card-text text-center">〇〇〇〇・〇〇・〇2</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="col-md-6 text-center">
+        <div class="card">
+            <div class="card-body">
+                <h5>宿泊人数 ： 〇〇 人</h5>
+            </div>
+        </div>
+
+        <br><br>
+
+        <form action="/reserve/confirmed" method="post">
+            {# <button type="button" name="aaa" value="aaa">
+                <font size="5">予約を確定</font>
+            </button> #}
+            <input type="hidden" name="date" value="〇〇-〇〇-〇〇">
+            <input type="hidden" name="people" value="1">
+            <input type="hidden" name="user_id" value="{{session.user_info.id}}"> 
+            <button type="submit" class="btn  btn-light mb-2">予約を確定</button>
+        </form>
+
+    </div>
 
 
-
-<p>
-<div style="margin-bottom:50px"><h1>address</h1></div>
-</p>
-
-<p>
-<div style="margin-bottom:100px">
-電話<br>
-アドレス<br>
-email<br></div>
-</p>
+    <br><br><br><br><br><br>
+    {% endblock %}
 
 
-
-<p>チェックイン　： ◯◯◯◯/◯◯/◯◯　</p>
-<p>チェックアウト : ◯◯◯◯/◯◯/◯◯　</p>
-
-
-<p><div style="margin:80px">宿泊人数 ?? 人</div></p>
-
-<form action="villa/reserve/check/[1]" method="post">
-<button type="button" name="aaa" value="aaa">
-<font size="5">予約を確定</font>
-</button>
-</form>
-
-
-
-{% endblock %}
-
-
-{#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+    {#共通フッタとして追記したい情報を記載します。#}
+    {% block footer_scripts_add %}{% endblock %}
