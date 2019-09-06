@@ -20,13 +20,14 @@
     {% for future in future_reserve %}
     <div class="col-lg-3 col-md-6 text-center">
         <div class="card img-thumbnail">
-            <img class="card-img-top" height="150" src="{{villa.image_path}}" alt="画像">
-            <div class="card-body px-2 py-3">
-                <h5 class="card-title">{{future.name}}</h5>
-                <p class="card-text text-left">{{future.description}}</p>
-                {# <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm form-control">詳細ページ</a> #}
-                </p>
-            </div>
+            <a href="/villa/{{future.id}}">
+                <img class="card-img-top" height="150" src="{{future.image_path}}" alt="画像">
+                <div class="card-body px-2 py-3">
+                    <h5 class="card-title">{{future.name}}</h5>
+                    <p class="card-text text-left">{{future.date}}</p>
+                    </p>
+                </div>
+            </a>
         </div>
     </div>
     {% endfor %}
@@ -44,7 +45,7 @@
     {% for past in past_reserve %}
     <div class="col-lg-3 col-md-6 text-center">
         <div class="card img-thumbnail">
-            <a href="/villa/{{past.villa.id}}">
+            <a href="/villa/{{past.id}}">
                 <img class="card-img-top" height="150" src="{{past.image_path}}" alt="画像">
                 <div class="card-body px-2 py-3">
                     <h5 class="card-title">{{past.name}}</h5>

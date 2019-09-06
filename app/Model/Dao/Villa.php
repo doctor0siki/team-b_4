@@ -94,7 +94,11 @@ class Villa extends Dao
                     image_path,
                     LEFT(description,50) as description
                  from villa 
-                where name like :keyword or description like :keyword";
+                where 
+                      name like :keyword or 
+                      description like :keyword or
+                      address like :keyword 
+                      ";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);

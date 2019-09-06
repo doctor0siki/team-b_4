@@ -31,7 +31,8 @@ $app->get('/villa/{ villa_id }[/]', function (Request $request, Response $respon
     $data = [
         "villa" => $villa->getVilla($args["villa_id"]),
         "spots" => $villa->getSpotByVilla(($args["villa_id"])),
-        "calendar" => $cal
+        "calendar" => $cal,
+        "today" => (int) date("j")
     ];
 
     // Render index view

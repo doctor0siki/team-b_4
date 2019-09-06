@@ -7,88 +7,70 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-  {# 背景動画を表示させるスタイルを読み込みます。#}
-  <link href="/assets/css/video.css" rel="stylesheet">
+    {# 背景動画を表示させるスタイルを読み込みます。#}
+    <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
 
-  <div class="row">
+<div class="row">
     <div class="col-md-12 text-center">
-      <br><br><br>
-      <h1>{{ villa.name }}</h2>
-      <br><br>
-      <h3>都道府県</h3>
-      <br><br><br><br>
-      <p>
-        <i class="fas fa-map-marker"></i>
-        :
-        {{ villa.id }}
+        <u>予約確認</u>
         <br>
-        <i class="fas fa-phone-square"></i>
-        :
-        {{ villa.phone }}<br>
-        <i class="fas fa-envelope-square"></i>
-        :
-        {{ villa.email }}<br>
-      </p>
+        <h1>{{ villa.name }}</h1>
+        <br><br>
+        <h3>{{ villa.address }}</h3>
+        <br><br>
+        <p>
+            <I class="fas fa-map-marker"></I>　<a href="https://www.google.co.jp/maps/search/{{ villa.address }}" target="_blank">{{ villa.address }}</a><br>
+            <I class="fas fa-phone-square"></I>　<a href="tel:{{ villa.phone }}">{{ villa.phone }}</a>
+        </p>
     </div>
-  </div>
-
-  <br><br><br><br>
-
-  <div class="row justify-content-center">
+</div>
+<br>
+<div class="row justify-content-center">
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">checkin</h5>
-          <p class="card-text text-center">{{ reserve.checkin }}</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">checkin</h5>
+                <p class="card-text text-center">{{ reserve.checkin | date("Y年m月d日")}}</p>
+            </div>
         </div>
-      </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">checkout</h5>
-          <p class="card-text text-center">{{ reserve.checkout }}</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">checkout</h5>
+                <p class="card-text text-center">{{ reserve.checkout | date("Y年m月d日")}}</p>
+            </div>
         </div>
-      </div>
     </div>
-
-    <br><br>
-
+    <br>
+    <hr>
     <div class="col-md-6 text-center">
-      <div class="card">
-        <div class="card-body">
-          <h5>宿泊人数 ：
-            {{ reserve.people }}
-            人</h5>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">宿泊人数</h5>
+                <p class="card-text text-center">{{ reserve.people }}人</p>
+            </div>
         </div>
-      </div>
-
-      <br><br>
-
-      <form
-        action="/reserve/confirmed" method="post">
-        {# <button type="button" name="aaa" value="aaa">
-                                <font size="5">予約を確定</font>
-                            </button> #}
-        <input type="hidden" name="date" value="{{ reserve.checkin }}">
-        <input type="hidden" name="people" value="{{ reserve.people}}">
-        <input type="hidden" name="user_id" value="{{session.user_info.id}}">
-        <input type="hidden" name="villa_id" value="{{villa.id}}">
-
-        <button type="submit" class="btn  btn-light mb-2">予約を確定</button>
-      </form>
+        <br><br>
+        <form action="/reserve/confirmed" method="post">
+            <input type="hidden" name="date" value="{{ reserve.checkin }}">
+            <input type="hidden" name="people" value="{{ reserve.people }}">
+            <input type="hidden" name="user_id" value="{{ session.user_info.id }}">
+            <input type="hidden" name="villa_id" value="{{ villa.id }}">
+            <button type="submit" class="btn form-control btn-outline-dark  mb-2">予約を確定</button>
+        </form>
 
     </div>
 
 
     <br><br><br><br><br><br>
-  {% endblock %}
+    {% endblock %}
 
 
-  {#共通フッタとして追記したい情報を記載します。#}
-  {% block footer_scripts_add %}{% endblock %}
+    {#共通フッタとして追記したい情報を記載します。#}
+    {% block footer_scripts_add %}{% endblock %}
