@@ -7,37 +7,33 @@ use Slim\Http\Response;
 
 // Reserveページのコントローラ
 // 予約画面
-$app->get('/reserve/{ villa_id:[0-9+] }[/]', function (Request $request, Response $response, $args) {
+$app->get('/reserve/{ villa_id:[0-9]+}[/]', function (Request $request, Response $response, $args) {
 
-	$villa = new Villa($this->db);
+    $villa = new Villa($this->db);
 
-    $data = [
-        //villa_id => $args["villa_id"],
-
-	villa => $villa->getVilla($args["villa_id"])
-    ];
+    $data["villa"] = $villa->getVilla($args["villa_id"]);
 //	dd($data);
     // $data = [];
     // dd($data);
     // Render index view
     return $this->view->render($response, 'reserve/index.twig', $data);
 
-    
-   // return $response->withRedirect('reserve/check.twig')
+
+    // return $response->withRedirect('reserve/check.twig')
 });
 
 // 予約確認画面
 $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Response $response, $args) {
 
-	$villa = new Villa($this->db);
+    $villa = new Villa($this->db);
 
     $data = [
-	reserve => $data = $request->getQueryParams(),
-	villa => $villa->getVilla($args["villa_id"])
+        reserve => $data = $request->getQueryParams(),
+        villa   => $villa->getVilla($args["villa_id"])
     ];
     //GETされた内容を取得します。
 
-   // dd($data);
+    // dd($data);
 
 
     // Render index view
