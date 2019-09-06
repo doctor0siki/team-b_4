@@ -21,10 +21,10 @@ class Reserve extends Dao
     /**
      * getReserveByVilla Function
      *
-     * ReserveVillaテーブルから指定villa_idのレコードを一件取得するクエリです。
+     * Reserveテーブルから指定villa_idのレコードを全件取得するクエリです。
      *
-     * @param int $villa_id 引数として、取得したい予約記録を返します。
-     * @return array $result 結果情報を連想配列で指定します。
+     * @param int $villa_id 引数として、取得したい予約記録を指定します。
+     * @return array $result 結果情報を連想配列を返します。
      * @throws DBALException
      * @author wkmkymt <wkmkymt@gmail.com>
      * @since 2019/09/05
@@ -35,13 +35,13 @@ class Reserve extends Dao
         // Villa_idを指定して取得するクエリを作成
         $sql = "select *
                     from reserve
-                    where date_format(reserve.date, '%Y-%m') = date_format(:date, '%Y-%m')";
+                    where date_format(date, '%Y-%m') = date_format(:date, '%Y-%m') and villa_id = :id";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
 
         // villa_idを指定します
-        // $statement->bindParam(":id", $villa_id, PDO::PARAM_INT);
+        $statement->bindValue(":id", $villa_id, PDO::PARAM_INT);
 
         // reserve_dateを指定します
         $statement->bindValue(":date", $reserve_date, PDO::PARAM_STR);
@@ -53,6 +53,16 @@ class Reserve extends Dao
         return $statement->fetchAll();
     }
 
+    /**
+     * formatReserveList Function
+     *
+     * Reserveテーブルから指定villa_idのレコードを全件取得するクエリです。
+     *
+     * @param array $reserves 引数として、予約記録を指定します。
+     * @return array $result フォーマットし直した連想配列を返します。
+     * @author wkmkymt <wkmkymt@gmail.com>
+     * @since 2019/09/05
+     */
     public static function formatReserveList($reserves)
     {
         $reserve_list = [];
