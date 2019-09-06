@@ -102,7 +102,7 @@
                     {% set cnt = cnt + 1 %}
                     {{ cal.day }}
                     {% if cal.day %}
-                        {% if calendar[cal.day].reserved ==false %}
+                        {% if calendar[cal.day-1].reserved ==false %}
                             <br>×
                         {% else %}
                             <br><a href="/reserve/{{ villa.id }}">○</a>

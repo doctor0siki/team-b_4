@@ -16,7 +16,6 @@ $app->get('/history/', function (Request $request, Response $response) {
         "future_reserve" => $reserve->getFutureReserveByUser($this->session["user_info"]["id"])
     ];
 
-
     // Render index view
     return $this->view->render($response, 'history/index.twig', $data);
 });
