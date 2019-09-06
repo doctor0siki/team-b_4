@@ -9,6 +9,11 @@ use Slim\Http\Response;
 // 予約画面
 $app->get('/reserve/{ villa_id:[0-9]+}[/]', function (Request $request, Response $response, $args) {
 
+
+    if($this->session["user_info"]==""){
+        return $response->withRedirect('/login/');
+    }
+
     $villa = new Villa($this->db);
 
     $data["villa"] = $villa->getVilla($args["villa_id"]);
@@ -19,6 +24,10 @@ $app->get('/reserve/{ villa_id:[0-9]+}[/]', function (Request $request, Response
 
 // 予約確認画面
 $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Response $response, $args) {
+
+    if($this->session["user_info"]==""){
+        return $response->withRedirect('/login/');
+    }
 
     $villa = new Villa($this->db);
 
@@ -34,6 +43,10 @@ $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Respon
 // 予約完了画面
 
 $app->post('/reserve/confirmed[/]', function (Request $request, Response $response) {
+
+    if($this->session["user_info"]==""){
+        return $response->withRedirect('/login/');
+    }
 
     $data = $request->getParsedBody();
     $reserve = new Reserve($this->db);
