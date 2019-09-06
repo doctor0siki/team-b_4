@@ -1,7 +1,7 @@
 <?php
 
 use Model\Dao\Villa;
-
+use Model\Dao\Reserve;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -11,8 +11,9 @@ $app->get('/reserve/{ villa_id:[0-9]+}[/]', function (Request $request, Response
 
     $villa = new Villa($this->db);
 
-    $data["villa"] = $villa->getVilla($args["villa_id"]);
-//	dd($data);
+    $data = [
+        villa => $villa->getVilla($args["villa_id"])
+    ];
     // $data = [];
     // dd($data);
     // Render index view
@@ -43,9 +44,16 @@ $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Respon
 // 予約完了画面
 
 $app->post('/reserve/confirmed[/]', function (Request $request, Response $response) {
-    $data = $request->getParsedBody();
-    // dd($data);
-    // $data = [];
+    $reserve = new Reserve($this->db);
+
+    $res = $request->getParsedBody();
+    $data = [
+        "villa_id" => $res["villa_id"],
+        "user_id" => $res["user_id"],
+        "date" => $res["date"]
+    ];
+
+    $id = $reserve->insert($data);
 
     // Render index view
     return $this->view->render($response, 'reserve/confirmed.twig', $data);
