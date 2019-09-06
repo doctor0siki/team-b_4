@@ -2,80 +2,93 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}予約ページ{% endblock %}
+{% block title %}予約ページ
+{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-{# 背景動画を表示させるスタイルを読み込みます。#}
-<link href="/assets/css/video.css" rel="stylesheet">
+  {# 背景動画を表示させるスタイルを読み込みます。#}
+  <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
 
-<div class="row">
+  <div class="row">
     <div class="col-md-12 text-center">
-        <br><br><br>
-	<h1>{{ villa.name }}</h2>
-            <br><br>
-            <h3>都道府県</h3>
-            <br><br><br><br>
-            <p>
-	    <i class="fas fa-map-marker"></i> : {{ villa.id }} <br>
-	    <i class="fas fa-phone-square"></i> :  {{ villa.phone }}<br>
-	    <i class="fas fa-envelope-square"></i> :  {{ villa.email }}<br>
-            </p>
+      <br><br><br>
+      <h1>{{ villa.name }}</h2>
+      <br><br>
+      <h3>都道府県</h3>
+      <br><br><br><br>
+      <p>
+        <i class="fas fa-map-marker"></i>
+        :
+        {{ villa.id }}
+        <br>
+        <i class="fas fa-phone-square"></i>
+        :
+        {{ villa.phone }}<br>
+        <i class="fas fa-envelope-square"></i>
+        :
+        {{ villa.email }}<br>
+      </p>
     </div>
-</div>
+  </div>
 
-<br><br><br><br>
+  <br><br><br><br>
 
-<div class="row justify-content-center">
+  <div class="row justify-content-center">
     <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">checkin</h5>
-		<p class="card-text text-center">{{ reserve.checkin }}</p>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">checkin</h5>
+          <p class="card-text text-center">{{ reserve.checkin }}</p>
         </div>
+      </div>
     </div>
     <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">checkout</h5>
-		<p class="card-text text-center">{{ reserve.checkout }}</p>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">checkout</h5>
+          <p class="card-text text-center">{{ reserve.checkout }}</p>
         </div>
+      </div>
     </div>
 
     <br><br>
 
     <div class="col-md-6 text-center">
-        <div class="card">
-            <div class="card-body">
-		    <h5>宿泊人数 ： {{ reserve.people }} 人</h5>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <h5>宿泊人数 ：
+            {{ reserve.people }}
+            人</h5>
         </div>
+      </div>
 
-        <br><br>
+      <br><br>
 
-        <form action="/reserve/confirmed" method="post">
-            {# <button type="button" name="aaa" value="aaa">
-                <font size="5">予約を確定</font>
-            </button> #}
-            <input type="hidden" name="date" value="〇〇-〇〇-〇〇">
-            <input type="hidden" name="people" value="1">
-            <input type="hidden" name="user_id" value="{{session.user_info.id}}"> 
-            <button type="submit" class="btn  btn-light mb-2">予約を確定</button>
-        </form>
+      <form
+        action="/reserve/confirmed" method="post">
+        {# <button type="button" name="aaa" value="aaa">
+                                <font size="5">予約を確定</font>
+                            </button> #}
+        <input type="hidden" name="date" value="{{ reserve.checkin }}">
+        <input type="hidden" name="people" value="{{ reserve.people}}">
+        <input type="hidden" name="user_id" value="{{session.user_info.id}}">
+        <input type="hidden" name="villa_id" value="{{villa.id}}">
+
+        <button type="submit" class="btn  btn-light mb-2">予約を確定</button>
+      </form>
 
     </div>
 
 
     <br><br><br><br><br><br>
-    {% endblock %}
+  {% endblock %}
 
 
-    {#共通フッタとして追記したい情報を記載します。#}
-    {% block footer_scripts_add %}{% endblock %}
+  {#共通フッタとして追記したい情報を記載します。#}
+  {% block footer_scripts_add %}{% endblock %}
