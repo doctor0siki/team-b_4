@@ -25,37 +25,35 @@
       <h5>都道府県</h5>
       <br><br><br><br><br><br>
       <p>
-        <i class="fas fa-map-marker"></i>
-        : Adress
-        <br>
-        <i class="fas fa-phone-square"></i>
-        :Phone
-        <br>
-        <i class="fas fa-envelope-square"></i>
-        :Email<br>
+          <I class="fas fa-map-marker"></I>　<a href="https://www.google.co.jp/maps/search/{{ row.address }}" target="_blank">{{ row.address }}</a><br>
+          <I class="fas fa-phone-square"></I>　<a href="tel:{{ row.phone }}">{{ row.phone }}</a><br>
+　        <i class="fas fa-envelope-square"></i>　<a href="mailto:{{ row.mail }}">{{ row.mail }}</a><br>
       </p>
     </div>
   </div>
 
 
-  <br><br><br><br><br><br>
+  <br><hr><br>
 
 
 <div class="row">
-  <div class="col-lg-10 col-md-10 text-center">
-	  <form action="/reserve/confirm/{{ villa_id }}" method="get">
 
+  <div class="col-lg-12 col-md-12 text-center">
+      <h4>
+          予約情報入力
+      </h4>
+      <br>
+	  <form action="/reserve/confirm/{{ villa_id }}" method="get">
         <div class="form-group row">
           <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックイン:</label>
           <div class="col-sm-10">
-            <input id="checkin" type="date" name="checkin" class="form-control">
+            <input id="checkin" type="date" name="checkin" class="form-control" required="required">
           </div>
         </div>
-
         <div class="form-group row">
           <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックアウト:</label>
           <div class="col-sm-10">
-            <input id="checkout" type="date" name="checkout" class="form-control">
+            <input id="checkout" type="date" name="checkout" class="form-control" required="required">
           </div>
         </div>
 
@@ -63,11 +61,11 @@
           <label class="col-sm-2 col-form-label">宿泊人数:
           </label>
           <div class="col-sm-10 col-md-2">
-            <input class="form-control " type=" number" name="people" min="1" max="5" placeholder="人数">
+            <input class="form-control " type="number" name="people" min="1" max="5" placeholder="人数" required="required">
           </div>
         </div>
 
-        <br><br><br><br><br><br>
+        <br><br>
         <div class="form-group">
           <label for="password" class="control-label">利用規約</label>
           <textarea class="form-control" rows="10" readonly>
@@ -85,8 +83,7 @@
         <input type="checkbox" name="agree_privacy" id="agree" value="" autocomplete="off" required="required"/>
 
         <br><br><br>
-        <button name="confirm" type="submit" id="submit" value="submit" class="disabled-btn" readonly="readonly">
-          確認ページへ</button>
+        <button name="confirm" type="submit" id="submit" value="submit" class="btn btn-outline-dark form-control" readonly="readonly">確認ページへ</button>
       </form>
     </div>
   </div>
