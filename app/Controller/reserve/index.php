@@ -14,14 +14,18 @@ $app->get('/reserve/{ villa_id:[0-9+] }[/]', function (Request $request, Respons
     // dd($data);
     // Render index view
     return $this->view->render($response, 'reserve/index.twig', $data);
+
+    
+   // return $response->withRedirect('reserve/check.twig')
 });
 
 // 予約確認画面
 $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Response $response, $args) {
 
     //GETされた内容を取得します。
-    // $data = $request->getQueryParams();
-    $data = [];
+    $data = $request->getQueryParams();
+
+    //dd($data);
 
 
     // Render index view
@@ -29,10 +33,12 @@ $app->get('/reserve/confirm/{ villa_id }[/]', function (Request $request, Respon
 });
 
 // 予約完了画面
+
 $app->post('/reserve/confirmed[/]', function (Request $request, Response $response) {
     $data = $request->getParsedBody();
     // dd($data);
     // $data = [];
+
     // Render index view
     return $this->view->render($response, 'reserve/confirmed.twig', $data);
 });
