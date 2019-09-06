@@ -5,7 +5,7 @@ use Slim\Http\Response;
 
 // Reserveページのコントローラ
 // 予約画面
-$app->get('/reserve/{ villa_id:[0-9+] }[/]', function (Request $request, Response $response, $args) {
+$app->get('/reserve/{ villa_id:[0-9]+}[/]', function (Request $request, Response $response, $args) {
 
     $data = [
         villa_id => $args["villa_id"]
@@ -15,7 +15,7 @@ $app->get('/reserve/{ villa_id:[0-9+] }[/]', function (Request $request, Respons
     // Render index view
     return $this->view->render($response, 'reserve/index.twig', $data);
 
-    
+
    // return $response->withRedirect('reserve/check.twig')
 });
 
