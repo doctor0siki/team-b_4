@@ -10,23 +10,41 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
-    {% if result %}
-        <div class="card-group">
-            {% for row in result %}
-                <a href="/villa/{{ row.id }}/">
-                    <div class="card">
-                        <img src="{{ row.image_path }}" class="card-img-top img-responsive" alt="{{ row.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ row.name }}</h5>
-                            <p class="card-text">{{ row.description }}...</p>
-                        </div>
-                    </div>
-                </a>
-            {% endfor %}
+{% if result %}
+<div class="card-group">
+    {% for row in result %}
+    <div class="col-lg-3 col-md-6 text-center" >
+    <a href="/villa/{{ row.id }}/">
+        <div class="card">
+            <img src="{{ row.image_path }}" height="150" class="card-img-top img-responsive" alt="{{ row.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ row.name }}</h5>
+                <p class="card-text">{{ row.description }}...</p>
+            </div>
         </div>
-    {% else %}
-        「{{ keyword }}」で検索しましたが、該当の情報がありませんでした。<br>もうすこし都会で仕事をする必要があるようです。
-    {% endif %}
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{# <div class="col-lg-3 col-md-6 text-center">
+                <div class="card img-thumbnail">
+                    <img class="card-img-top" src="{{villa.image_path}}" alt="画像">
+                    <div class="card-body px-2 py-3">
+                        <h5 class="card-title">{{villa.name}}</h5>
+                        <p class="card-text text-left">{{villa.description}}</p>
+                        <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm form-control">詳細ページ</a>
+                        </p>
+                    </div>
+                </div>
+            </div> #}
+
+
+
+
+{% else %}
+「{{ keyword }}」で検索しましたが、該当の情報がありませんでした。<br>もうすこし都会で仕事をする必要があるようです。
+{% endif %}
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
