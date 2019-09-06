@@ -16,13 +16,13 @@
 
   <div class="row">
     <div class="col-lg-8 col-md-8 text-center">
-      <img src="/assets/img/icon01.png" class="img-thumbnail">
+      <img src="{{ row.image_path }}" class="img-thumbnail">
     </div>
     <div class="col-lg-4 col-md-8 text-center">
       <br><br><br>
-      <h4>Title</h4>
+      <h4>{{ row.name }}</h4>
       <br><br><br>
-      <h5>都道府県</h5>
+      <h5>{{ row.address }}</h5>
       <br><br><br><br><br><br>
       <p>
           <I class="fas fa-map-marker"></I>　<a href="https://www.google.co.jp/maps/search/{{ row.address }}" target="_blank">{{ row.address }}</a><br>
