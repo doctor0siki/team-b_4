@@ -8,6 +8,13 @@
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
     <link herf="/assets/css/mouse.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neuton&display=swap" rel="stylesheet">
+    <style>
+        .money {
+            font-family: 'Neuton', serif;
+
+        }
+    </style>
 {% endblock %}
 
 
@@ -21,7 +28,7 @@
             <br>
             <h3>{{ villa.name }}</h3>
             <br>
-            <h3 class="">{{ villa.cost | number_format }}円</h3>
+            <h2 class="money">{{ villa.cost | number_format }}-</h2>
             <br><br>
             <a class="btn btn-outline-secondary btn-xl">
                 <h4>予約する</h4>
