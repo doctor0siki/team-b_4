@@ -14,27 +14,24 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
-  <div class="row">
-    <div class="col-lg-8 col-md-8 text-center">
-      <img src="/assets/img/icon01.png" class="img-thumbnail">
-    </div>
-    <div class="col-lg-4 col-md-8 text-center">
-      <br><br><br>
-      <h4>Title</h4>
-      <br><br><br>
-      <h5>都道府県</h5>
-      <br><br><br><br><br><br>
-      <p>
-        <i class="fas fa-map-marker"></i>
-        : Adress
-        <br>
-        <i class="fas fa-phone-square"></i>
-        :Phone
-        <br>
-        <i class="fas fa-envelope-square"></i>
-        :Email<br>
-      </p>
-    </div>
+
+<div class="row">
+  <div class="col-lg-8 col-md-8 text-center">
+	  <img src="{{ villa.image_path }}" class="img-thumbnail">
+	  <!--    <img src="/assets/img/icon01.png" class="img-thumbnail">
+	  -->  </div>
+  <div class="col-lg-4 col-md-8 text-center">
+    <br><br><br>
+    <h4>{{ villa.name }}</h4>
+    <br><br><br>
+    <h5>都道府県</h5>
+    <br><br><br><br><br><br>
+    <p>
+    <i class="fas fa-map-marker"></i> : {{ villa.address }}<br>
+    <i class="fas fa-phone-square"></i> : {{ villa.phone }} <br>
+    <i class="fas fa-envelope-square"></i> : {{ villa.email }}<br>
+    </p>
+
   </div>
 
 
@@ -43,7 +40,8 @@
 
 <div class="row">
   <div class="col-lg-10 col-md-10 text-center">
-	  <form action="/reserve/confirm/{{ villa_id }}" method="get">
+	  <form action="/reserve/confirm/{{ villa.id }}" method="get">
+
 
         <div class="form-group row">
           <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックイン:</label>

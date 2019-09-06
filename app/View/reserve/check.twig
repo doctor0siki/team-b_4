@@ -17,14 +17,14 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <br><br><br>
-        <h1>titile</h2>
+	<h1>{{ villa.name }}</h2>
             <br><br>
             <h3>都道府県</h3>
             <br><br><br><br>
             <p>
-                <i class="fas fa-map-marker"></i> : Adress <br>
-                <i class="fas fa-phone-square"></i> :Phone <br>
-                <i class="fas fa-envelope-square"></i> :Email<br>
+	    <i class="fas fa-map-marker"></i> : {{ villa.id }} <br>
+	    <i class="fas fa-phone-square"></i> :  {{ villa.phone }}<br>
+	    <i class="fas fa-envelope-square"></i> :  {{ villa.email }}<br>
             </p>
     </div>
 </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">checkin</h5>
-                <p class="card-text text-center">〇〇〇〇・〇〇・〇1</p>
+		<p class="card-text text-center">{{ reserve.checkin }}</p>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">checkout</h5>
-                <p class="card-text text-center">〇〇〇〇・〇〇・〇2</p>
+		<p class="card-text text-center">{{ reserve.checkout }}</p>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="col-md-6 text-center">
         <div class="card">
             <div class="card-body">
-                <h5>宿泊人数 ： 〇〇 人</h5>
+		    <h5>宿泊人数 ： {{ reserve.people }} 人</h5>
             </div>
         </div>
 
