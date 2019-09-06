@@ -2,93 +2,112 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}予約ページ{% endblock %}
+{% block title %}予約ページ
+{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-{# 背景動画を表示させるスタイルを読み込みます。#}
-<link href="/assets/css/video.css" rel="stylesheet">
+  {# 背景動画を表示させるスタイルを読み込みます。#}
+  <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
-<div class="row">
-  <div class="col-lg-8 col-md-8 text-center">
-    <img src="/assets/img/icon01.png" class="img-thumbnail">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 text-center">
+      <img src="/assets/img/icon01.png" class="img-thumbnail">
+    </div>
+    <div class="col-lg-4 col-md-8 text-center">
+      <br><br><br>
+      <h4>Title</h4>
+      <br><br><br>
+      <h5>都道府県</h5>
+      <br><br><br><br><br><br>
+      <p>
+        <i class="fas fa-map-marker"></i>
+        : Adress
+        <br>
+        <i class="fas fa-phone-square"></i>
+        :Phone
+        <br>
+        <i class="fas fa-envelope-square"></i>
+        :Email<br>
+      </p>
+    </div>
   </div>
-  <div class="col-lg-4 col-md-8 text-center">
-    <br><br><br>
-    <h4>Title</h4>
-    <br><br><br>
-    <h5>都道府県</h5>
-    <br><br><br><br><br><br>
-    <p>
-      <i class="fas fa-map-marker"></i> : Adress <br>
-      <i class="fas fa-phone-square"></i> :Phone <br>
-      <i class="fas fa-envelope-square"></i> :Email<br>
-    </p>
-  </div>
-</div>
 
 
-<br><br><br><br><br><br>
+  <br><br><br><br><br><br>
 
 
 <div class="row">
   <div class="col-lg-10 col-md-10 text-center">
 	  <form action="/reserve/confirm/{{ villa_id }}" method="get">
 
-      <div class="form-group row">
-        <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックイン:</label>
-        <div class="col-sm-10">
-          <input type="date" name="checkin" class="form-control">
+        <div class="form-group row">
+          <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックイン:</label>
+          <div class="col-sm-10">
+            <input id="checkin" type="date" name="checkin" class="form-control">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group row">
-        <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックアウト:</label>
-        <div class="col-sm-10">
-          <input type="date" name="checkout" class="form-control">
+        <div class="form-group row">
+          <label for="formGroupExampleInput" class="col-sm-2 col-form-label">チェックアウト:</label>
+          <div class="col-sm-10">
+            <input id="checkout" type="date" name="checkout" class="form-control">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">宿泊人数:　</label>
-        <div class="col-sm-10 col-md-2">
-          <input class="form-control " type=" number" name="people" min="1" max="5" placeholder="人数">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">宿泊人数:
+          </label>
+          <div class="col-sm-10 col-md-2">
+            <input class="form-control " type=" number" name="people" min="1" max="5" placeholder="人数">
+          </div>
         </div>
-      </div>
 
-      <br><br><br><br><br><br>
-      <div class="form-group">
-        <label for="password" class="control-label">利用規約</label>
-        <textarea class="form-control" rows="10" readonly>
-  利用規約
-  この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+        <br><br><br><br><br><br>
+        <div class="form-group">
+          <label for="password" class="control-label">利用規約</label>
+          <textarea class="form-control" rows="10" readonly>
+            利用規約
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          第1条（適用）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。。。。
+          </textarea>
+        </div>
+        <label for="agree">
+          利用規約を確認し、同意しました。</label>
+        <input type="checkbox" name="agree_privacy" id="agree" value="" autocomplete="off" required="required"/>
 
-  第1条（適用）
-  本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
-  当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
-  本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。。。。
-</textarea>
-      </div>
-      <label for="agree"> 利用規約を確認し、同意しました。</label>
-      <input type="checkbox" name="agree_privacy" id="agree" value="" autocomplete="off" required="required" />
-
-      <br><br><br>
-      <button name="confirm" type="submit" id="submit" value="submit" class="disabled-btn" readonly="readonly">
-        確認ページへ</button>
-    </form>
+        <br><br><br>
+        <button name="confirm" type="submit" id="submit" value="submit" class="disabled-btn" readonly="readonly">
+          確認ページへ</button>
+      </form>
+    </div>
   </div>
-</div>
 
 
-<br><br><br><br><br><br>
+  <br><br><br><br><br><br>
 
 {% endblock %}
 
 
 {#共通フッタとして追記したい情報を記載します。#}
 {% block footer_scripts_add %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script>
+    let $checkin = $("#checkin")
+    let $checkout = $("#checkout")
+
+    $checkin.on("change", () => {
+      let day = parseInt($checkin.val().slice(8)) + 1
+      $checkout.val($checkin.val().slice(0, -2) + day)
+    })
+  </script>
 {% endblock %}
