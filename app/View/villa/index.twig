@@ -7,141 +7,116 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-<link herf="/assets/css/mouse.css" rel="stylesheet">
+    <link herf="/assets/css/mouse.css" rel="stylesheet">
 {% endblock %}
 
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-<div class="row">
-    <div class="col-lg-8 col-md-8 text-center">
-        <img src="/assets/img/icon01.png" class="img-thumbnail">
-    </div>
-    <div class="col-lg-4 col-md-8 text-center">
-        <br><br><br><br><br>
-        <h3>タイトル</h3>
-        <br><br><br>
-        <h5>金額</h5>
-        <br><br><br><br><br>
-        <a class="btn btn-outline-secondary btn-xl">
-            <h4>予約する</h4>
-        </a>
-        <br><br><br>
-        <h5>都道府県 名</h5>
-    </div>
-</div>
-
-<br><br><br><br><br><br>
-
-<div class="row">
-    <div class="col-lg-4 col-md-8 text-center">
-        <img src="/assets/img/icon01.png" class="img-thumbnail">
-    </div>
-    <div class="col-lg-8 col-md-8 text-center">
-        <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーこの文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミー
-        </p>
-    </div>
-</div>
-
-<br><br><br>
-<div class="row">
-    <fieldset style="border: 1px dashed #000000; padding: 10px;">
-        <legend class="text-center">付近のおすすめ観光地</legend>
-        <div class="row no-gutters">
-            <div class="col-md-4 my-auto">
-                <img class="card-img" src="https://www.kabegamikan.com/img/na13/162970.jpg">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">鶴ヶ城</h5>
-                    <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
-                    <I class="fas fa-map-marker"></I> : Adress
-                    <I class="fas fa-phone-square"></I> :Phone
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 text-center">
+            <img src="{{ villa.image_path }}" class="img-thumbnail">
         </div>
-
-        <br>
-
-        <div class="row no-gutters">
-            <div class="col-md-4 my-auto">
-                <img class="card-img" src="https://www.kabegamikan.com/img/na13/162970.jpg">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">鶴ヶ城</h5>
-                    <p>ここに写真の説明などを記載します。これは例えば作品集の一部を写真で示しておいて、下のリンクから作品集ページに飛んでもらうような仕掛けを作ることができます。</p>
-                    <I class="fas fa-map-marker"></I> : Adress
-                    <I class="fas fa-phone-square"></I> :Phone
-                </div>
-            </div>
+        <div class="col-lg-4 col-md-8 text-center">
+            <br>
+            <h3>{{ villa.name }}</h3>
+            <br>
+            <h3 class="">{{ villa.cost | number_format }}円</h3>
+            <br><br>
+            <a class="btn btn-outline-secondary btn-xl">
+                <h4>予約する</h4>
+            </a>
+            <br><br><br>
+            <h5>{{ villa.address }}</h5>
         </div>
+    </div>
 
-        {# {% for spot in spots %}
-        <div class="row no-gutters">
-            <div class="col-md-4 my-auto">
-                <img class="card-img" src="{{spot.img-pass}}">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{spot.name}}</h5>
-                    <p>{{spot.description}}</p>
-                    <I class="fas fa-map-marker"></I> : {{spot.adress}}
-                    <I class="fas fa-phone-square"></I> : {{spot.phone}}
-                </div>
-            </div>
+    <br>
+    <hr>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-8 text-center">
+            <img src="{{ villa.floor_path }}" class="img-thumbnail">
         </div>
-        {% endfor %} #}
-    </fieldset>
-</div>
+        <div class="col-lg-8 col-md-8 text-left">
+            <p>{{ villa.description | nl2br }}
+            </p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    {% if spots %}
+        <div class="row">
+            <fieldset style="border: 1px dashed #000000; padding: 10px;">
+                <legend class="text-center">付近のおすすめ観光地</legend>
+                {% for row in spots %}
+                    <div class="row no-gutters">
+                        <div class="col-md-4 my-auto text-center">
+                            <img class="card-img" src="{{ row.image_path }}">
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ row.name }}</h5>
+                                <p>{{ row.description }}</p>
+                                <I class="fas fa-map-marker"></I><a href="https://www.google.co.jp/maps/search/{{ row.address }}" target="_blank">{{ row.address }}</a><br>
+                                <I class="fas fa-phone-square"></I><a href="tel:{{ row.phone }}">{{ row.phone }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                {% endfor %}
+            </fieldset>
+        </div>
+    {% endif %}
+    <br><br><br>
 
-<br><br><br>
-
-<div class="row">
-    <h1>
-        {{ calendar.month_name }}
-    </h1>
-    <table>
-        <tr>
-            <th>日</th>
-            <th>月</th>
-            <th>火</th>
-            <th>水</th>
-            <th>木</th>
-            <th>金</th>
-            <th>土</th>
-        </tr>
-        <tr>
-            {% set cnt = 0 %}
-            {% for cal in calendar %}
-            <td>
-                {% set cnt = cnt + 1 %}
-                {{ cal.day }}
-                {% if cal.day %}
-                {% if reserved >=1 %}
-                <br>×
-                {% else %}
-                <br><a href="reserve/1">○</a>
+    <div class="row">
+        <h1>
+            {{ calendar.month_name }}
+        </h1>
+        <table>
+            <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+            </tr>
+            <tr>
+                {% set cnt = 0 %}
+                {% for cal in calendar %}
+                <td>
+                    {% set cnt = cnt + 1 %}
+                    {{ cal.day }}
+                    {% if cal.day %}
+                        {% if reserved >=1 %}
+                            <br>×
+                        {% else %}
+                            <br><a href="reserve/1">○</a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+                {% if cnt == 7 %}
+            </tr>
+            <tr>
+                {% set cnt = 0 %}
                 {% endif %}
-                {% endif %}
-            </td>
-            {% if cnt == 7 %}
-        </tr>
-        <tr>
-            {% set cnt = 0 %}
-            {% endif %}
-            {% endfor %}
-        </tr>
-    </table>
+                {% endfor %}
+            </tr>
+        </table>
 
-</div>
+    </div>
 
-<br><br><br>
-<div class="row">
-    <button type="button" class="btn btn-outline-secondary btn-block">予約する</button>
-</div>
+    <br><br><br>
+    <div class="row">
+        <button type="button" class="btn btn-outline-secondary btn-block">予約する</button>
+    </div>
 
-<br><br><br><br><br><br>
+    <br><br><br><br><br><br>
 {% endblock %}
 {#共通フッタとして追記したい情報を記載します。#}
 {% block footer_scripts_add %}{% endblock %}
