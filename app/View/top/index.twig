@@ -22,10 +22,10 @@
                 <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
                 <div id="filter">
                 </div>
-    
+
             </div>
         </div>
-    
+
     </div> -->
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -89,37 +89,34 @@
                 </div>
             </div> -->
         <div class="col-lg-4 col-md-6 text-center">
-            <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+            <i class="fas fa-briefcase" class="card-img-top" style="font-size: 80px"></i>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
+                <h5 class="card-title">普段と違う時間</h5>
+                <p class="card-text">仕事ばかりの普段の生活とは違った時の流れ</p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
-            <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+
+            <i class="fas fa-glass-cheers" style="font-size: 80px"></i>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
+                <h5 class="card-title">別荘という特別感</h5>
+                <p class="card-text">普段感じることのできないリラックスした時の流れ</p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
-            <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img1" class="card-img-top" alt="...">
+            <i class="fas fa-tree" style="font-size: 80px"></i>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
+                <h5 class="card-title">大自然</h5>
+                <p class="card-text">子供心にもどって大声で叫びながら自然と戯れる</p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
     </div>
-
-
-    <br><br><br><br><br><br><br><br><br><br><br>
-
+<br>
+<br><br>
+    <br>
 
     <div class="row">
         <div class="text-center col-lg-12 col-md-12">
@@ -133,13 +130,13 @@
                     <img class="card-img-top" src="{{villa.image_path}}" alt="画像">
                     <div class="card-body px-2 py-3">
                         <h5 class="card-title">{{villa.name}}</h5>
-                        <p class="card-text"></p>{{villa.description}}</p>
-                        <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm">詳細ページ</a>
+                        <p class="card-text text-left">{{villa.description}}</p>
+                        <p class="mb-0"><a href="/villa/{{villa.id}}" class="btn btn-primary btn-sm form-control">詳細ページ</a>
                         </p>
                     </div>
                 </div>
             </div>
-            {% endfor %} 
+            {% endfor %}
 
 
         {# <div class="col-lg-3 col-md-6 text-center">
